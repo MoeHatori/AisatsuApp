@@ -25,21 +25,23 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun showTimePickerDialog() {
+        val result:String
         val timePickerDialog = TimePickerDialog(
             this,
-            TimePickerDialog.OnTimeSetListener { hour ->
-                if(2 <= hour $$ hour <= 9){
-                    TextView.text = "おはよう"
-                } else if (10 <= hour $$ hour <= 17){
-                    TextView.text = "こんにちは"
+            TimePickerDialog.OnTimeSetListener { view, hour, minute ->
+                if(2 <= hour && hour <= 9){
+                    Log.d("UI_PARTS","おはよう")
+                    textView.text = "おはよう"
+                } else if (10 <= hour && hour <= 17){
+                    Log.d("UI_PARTS","こんにちわ")
+                    textView.text = "こんにちは"
                 }else {
-                    TextView.text = "こんばんわ"
+                    Log.d("UI_PARTS","こんばんわ")
+                    textView.text = "こんばんわ"
                 }
             },
             13, 0, true)
         timePickerDialog.show()
-
-
 
     }
 
@@ -47,10 +49,3 @@ class MainActivity : AppCompatActivity() {
 
 }
 
-//if(2 <= hourOfDay $$ hourOfDay <= 9){
-//    TextView.text = "おはよう"
-//} else if (10 <= hourOfDay $$ hourOfDay <= 17){
-//    TextView.text = "こんにちは"
-//}else {
-//    TextView.text = "こんばんわ"
-//}
